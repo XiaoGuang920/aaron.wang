@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --clr-black: #000000;
+    --clr-white: #ffffff;
+    --clr-gray-100: #f8f9fa;
+    --clr-gray-200: #e9ecef;
+    --clr-gray-300: #dee2e6;
+    --clr-gray-400: #ced4da;
+    --clr-gray-500: #adb5bd;
+    --clr-gray-600: #6c757d;
+    --clr-gray-700: #495057;
+    --clr-gray-800: #343a40;
+    --clr-gray-900: #212529;
+
+    --clr-blue-100: #ebf8ff;
+    --clr-blue-200: #bee3f8;
+    --clr-blue-300: #90cdf4;
+    --clr-blue-400: #63b3ed;
+    --clr-blue-500: #4299e1;
+    --clr-blue-600: #3182ce;
+    --clr-blue-700: #2b6cb0;
+    --clr-blue-800: #2c5282;
+    --clr-blue-900: #2a4365;
+
+    --clr-primary: var(--clr-blue-500);
+    --clr-secondary: var(--clr-gray-600);
+    --clr-success: #28a745;
+    --clr-danger: #dc3545;
+    --clr-warning: #ffc107;
+    --clr-info: var(--clr-blue-400);
+    --clr-light: var(--clr-gray-100);
+    --clr-dark: var(--clr-gray-900);
+
+    --clr-brand-primary: var(--clr-blue-700);
+    --clr-brand-secondary: var(--clr-gray-700);
+    --clr-brand-accent: #ffdd57;
+    --clr-text-primary: var(--clr-gray-900);
+    --clr-text-secondary: var(--clr-gray-700);
+    --clr-background-primary: var(--clr-white);
+    --clr-background-secondary: var(--clr-gray-100);
+}
+  
+body {
+    margin: 0;
+    background-color: var(--clr-dark);
+    font-family: 'Oswald', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+#root {
+    font-size: 24px;
+    color: var(--clr-light);
+    padding: 5.5em 1em 1em 1em;
+}

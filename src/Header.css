@@ -1,0 +1,51 @@
+#header {
+    font-family: 'Oswald', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: calc(100% - 3em);
+    height: 3.5em;
+    background-color: var(--clr-light);
+    border-radius: 5px;
+    padding: 0em 0.5em;
+    animation: headerFadeIn .8s ease-in-out, headerTranslateIn .8s ease-in-out;
+}
+
+@keyframes headerFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes headerTranslateIn {
+    from {
+        top: 0;
+    }
+    to {
+        top: 1em;
+    }
+}
+
+#header .logo {
+    height: 100%;
+}
+
+#header .link {
+    float: right;
+    height: 100%;
+    line-height: 3.5em;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-right: 1em;
+    color: var(--clr-gray-800);
+    cursor: pointer;
+}
