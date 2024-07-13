@@ -1,0 +1,121 @@
+{
+    "frontend_skills": [
+        {
+            "name": "html",
+            "image": "html.svg",
+            "alt": "html"
+        },
+        {
+            "name": "css",
+            "image": "css.svg",
+            "alt": "css"
+        },
+        {
+            "name": "javascript",
+            "image": "javascript.svg",
+            "alt": "javascript"
+        },
+        {
+            "name": "typescript",
+            "image": "typescript.svg",
+            "alt": "typescript"
+        },
+        {
+            "name": "jquery",
+            "image": "jquery.svg",
+            "alt": "jquery"
+        },
+        {
+            "name": "vue.js",
+            "image": "vue.svg",
+            "alt": "vue.js"
+        },
+        {
+            "name": "react.js",
+            "image": "react.svg",
+            "alt": "react.js"
+        },
+        {
+            "name": "unity",
+            "image": "unity.svg",
+            "alt": "unity"
+        },
+        {
+            "name": "c#",
+            "image": "c-sharp.svg",
+            "alt": "c#"
+        },
+        {
+            "name": "p5.js",
+            "image": "p5js.svg",
+            "alt": "p5.js"
+        }
+    ],
+    "backend_skills": [
+        {
+            "name": "php",
+            "image": "php.svg",
+            "alt": "php"
+        },
+        {
+            "name": "laravel",
+            "image": "laravel.svg",
+            "alt": "laravel"
+        },
+        {
+            "name": "codeigniter",
+            "image": "codeigniter.svg",
+            "alt": "codeigniter"
+        },
+        {
+            "name": "elasticsearch",
+            "image": "elasticsearch.svg",
+            "alt": "elasticsearch"
+        },
+        {
+            "name": "mysql",
+            "image": "mysql.svg",
+            "alt": "mysql"
+        },
+        {
+            "name": "c++",
+            "image": "c-plus.svg",
+            "alt": "c++"
+        },
+        {
+            "name": "c#",
+            "image": "c-sharp.svg",
+            "alt": "c#"
+        },
+        {
+            "name": "typescript",
+            "image": "typescript.svg",
+            "alt": "typescript"
+        },
+        {
+            "name": "python",
+            "image": "python.svg",
+            "alt": "python"
+        },
+        {
+            "name": "aws",
+            "image": "aws.svg",
+            "alt": "aws"
+        },
+        {
+            "name": "gcp",
+            "image": "gcp.svg",
+            "alt": "gcp"
+        },
+        {
+            "name": "ubuntu",
+            "image": "ubuntu.svg",
+            "alt": "ubuntu"
+        },
+        {
+            "name": "linux",
+            "image": "linux.svg",
+            "alt": "linux"
+        }
+    ]
+}

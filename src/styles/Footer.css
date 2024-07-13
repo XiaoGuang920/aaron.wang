@@ -1,0 +1,32 @@
+.footer {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 3em;
+    border-top: 3px var(--clr-gray-800) solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 4vw;
+}
+
+.footer .icon-circle {
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: 30px;
+    color: var(--clr-blue-800);
+    background-color: var(--clr-gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.footer .icon-circle:hover {
+    color: var(--clr-blue-300);
+    background-color: var(--clr-gray-900);
+    border: 1px var(--clr-blue-300) solid;
+}
+
+.footer .icon-circle svg {
+    margin: 0.25em;
+}

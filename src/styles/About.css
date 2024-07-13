@@ -1,7 +1,11 @@
 .about {
+    width: calc(100vw - 16vw);
+    height: calc(100vh - 3em);
+    padding-top: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 2em;
 }
 
 .about-img {
@@ -12,7 +16,7 @@
 }
 
 .about-img img {
-    width: 25em;
+    width: 115%;
     animation: fadeIn .8s ease-in-out, rightTranslateIn .8s ease-in-out;
 }
 
@@ -33,7 +37,7 @@
 .skill {
     margin-top: 2em;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 2em;
 }
@@ -41,8 +45,9 @@
 .skill-tag {
     width: 50%;
     padding: 1em;
-    background-color: var(--clr-gray-600);
+    background-color: var(--clr-gray-700);
     border-radius: 5px;
+    opacity: 0;
 }
 
 .skill-tag .title {
@@ -53,6 +58,7 @@
 .skill-tag .content {
     margin-top: 1em;
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
 }
 
@@ -64,10 +70,6 @@
 .skill-tag .content .skill-icon img {
     width: 100%;
     height: 100%;
-}
-
-.fade-in {
-    animation: fadeIn .8s ease-in-out, upTranslateIn .8s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -113,4 +115,80 @@
     to {
         transform: translateX(0);
     }
+}
+
+.pined-projects .title {
+    font-size: 34px;
+    font-weight: 400;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.pined-projects .projects-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.pined-projects .project {
+    font-size: 24px;
+    max-width: calc(50% - 4em);
+    padding: 1.5em;
+    border: 2px var(--clr-blue-300) solid;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.pined-projects .project.fade-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .8s ease-in-out;
+}
+
+.pined-projects .project .project-title {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.pined-projects .project .project-desc {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+    font-weight: 300;
+    margin-top: 0.5em;
+}
+
+.pined-projects .project .link {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 0.5em;
+}
+
+.pined-projects .project .cover-img {
+    position: relative;
+    margin-top: 6em;
+    width: 100%;
+    height: 12em;
+}
+
+.pined-projects .project .cover-img img {
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: calc(100% + 3em);
+    bottom: -15%;
+    left: 50%;
+    transition: width .5s ease-in-out;
+}
+
+.pined-projects .project .cover-img:hover > img {
+    width: calc(100% + 6em);
+    transition: width .5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+    animation: fadeIn .8s ease-in-out, upTranslateIn .8s ease-in-out;
 }

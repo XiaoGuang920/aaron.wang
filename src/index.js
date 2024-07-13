@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Header from './Header';
+import Header from './templates/Header';
+import Footer from './templates/Footer';
 import Bpp from './Bpp';
 import About from './templates/About';
 import NotFound from './NotFound';
@@ -18,6 +19,7 @@ root.render(
                 <Route path="about" element={<Bpp />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
+            <Footer />
         </BrowserRouter>
     </React.StrictMode>
 );

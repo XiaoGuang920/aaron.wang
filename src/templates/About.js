@@ -1,133 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import '../styles/About.css'
-import about_img from '../images/about.png';
 import useElementOnScreen from '../libraries/UseElementOnScreen';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-// frontend
-import html from '../images/html.svg';
-import css from '../images/css.svg';
-import javascript from '../images/javascript.svg';
-import typescript from '../images/typescript.svg';
-import jquery from '../images/jquery.svg';
-import vue from '../images/vue.svg';
-import react from '../images/react.svg';
-import unity from '../images/unity.svg';
-import c_sharp from '../images/c-sharp.svg';
-import p5 from '../images/p5js.svg';
+import '../styles/About.css';
 
-// backend
-import php from '../images/php.svg';
-import laravel from '../images/laravel.svg';
-import codeigniter from '../images/codeigniter.svg';
-import elasticsearch from '../images/elasticsearch.svg';
-import mysql from '../images/mysql.svg';
-import c_plus from '../images/c-plus.svg';
-import python from '../images/python.svg';
-import aws from '../images/aws.svg';
-import gcp from '../images/gcp.svg';
-import ubuntu from '../images/ubuntu.svg';
-import linux from '../images/linux.svg';
+import about_img from '../images/about.png';
 
 function About()
 {
-    const frontend_skill_list = [
-        {
-            name: 'html',
-            src: html,
-        },
-        {
-            name: 'css',
-            src: css,
-        },
-        {
-            name: 'javascript',
-            src: javascript,
-        },
-        {
-            name: 'typescript',
-            src: typescript,
-        },
-        {
-            name: 'jquery',
-            src: jquery,
-        },
-        {
-            name: 'vue',
-            src: vue,
-        },
-        {
-            name: 'react',
-            src: react,
-        },
-        {
-            name: 'unity',
-            src: unity,
-        },
-        {
-            name: 'c#',
-            src: c_sharp,
-        },
-        {
-            name: 'p5.js',
-            src: p5,
-        },
-    ];
-
-    const backend_skill_list = [
-        {
-            name: 'php',
-            src: php,
-        },
-        {
-            name: 'laravel',
-            src: laravel,
-        },
-        {
-            name: 'codeigniter',
-            src: codeigniter,
-        },
-        {
-            name: 'elasticsearch',
-            src: elasticsearch,
-        },
-        {
-            name: 'mysql',
-            src: mysql,
-        },
-        {
-            name: 'c++',
-            src: c_plus,
-        },
-        {
-            name: 'c#',
-            src: c_sharp,
-        },
-        {
-            name: 'typescript',
-            src: typescript,
-        },
-        {
-            name: 'python',
-            src: python,
-        },
-        {
-            name: 'aws',
-            src: aws,
-        },
-        {
-            name: 'gcp',
-            src: gcp,
-        },
-        {
-            name: 'linux',
-            src: linux,
-        },
-        {
-            name: 'ubuntu',
-            src: ubuntu,
-        },
-    ];
-
     const [frontendContainerRef, frontendIsVisible] = useElementOnScreen({
         root: null,
         rootMargin: '0px',
@@ -140,8 +21,50 @@ function About()
         threshold: 0.2,
     });
 
+    const [project1ContainerRef, project1IsVisible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+    const [project2ContainerRef, project2IsVisible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+    const [project3ContainerRef, project3IsVisible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+    const [project4ContainerRef, project4IsVisible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+    const [frontend_skill_list, setFrontendSkillList] = useState(null);
+    const [backend_skill_list, setBackendSkillList] = useState(null);
+
+    useEffect(() => {
+        fetch(`${process.env.PUBLIC_URL}/data/skills.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(skills => {
+                setFrontendSkillList(skills.frontend_skills);
+                setBackendSkillList(skills.backend_skills);
+            })
+            .catch(error => console.error('Fetching Content Error:', error));
+    }, []);
+
     return (
-        <div>
+        <div className="container">
             <div className="about">
                 <div className="about-img">
                     <img src={about_img} alt="about"/>
@@ -152,23 +75,71 @@ function About()
                 </div>
             </div>
             
+            <div className="pined-projects">
+                <div className="title">Featured Projects</div>
+                <div className="projects-content">
+                    <div className={`project ${project1IsVisible ? 'fade-fade-in' : ''}`} ref={project1ContainerRef}>
+                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
+                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
+                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+                        <div className="cover-img">
+                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
+                        </div>
+                    </div>
+                    <div className={`project ${project2IsVisible ? 'fade-fade-in' : ''}`} ref={project2ContainerRef}>
+                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
+                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
+                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+                        <div className="cover-img">
+                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
+                        </div>
+                    </div>
+                    <div className={`project ${project3IsVisible ? 'fade-fade-in' : ''}`} ref={project3ContainerRef}>
+                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
+                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
+                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+                        <div className="cover-img">
+                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
+                        </div>
+                    </div>
+                    <div className={`project ${project4IsVisible ? 'fade-fade-in' : ''}`} ref={project4ContainerRef}>
+                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
+                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
+                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+                        <div className="cover-img">
+                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div className="skill">
-                <div className={`skill-tag ${frontendIsVisible ? 'fade-in' : ''}`} ref={frontendContainerRef}>
+                {frontend_skill_list ? (
+                    <div className={`skill-tag ${frontendIsVisible ? 'fade-in' : ''}`} ref={frontendContainerRef}>
                     <div className="title">Frontend-End Skills</div>
                     <div className="content">
-                        {frontend_skill_list.map((skill, index) => (
-                            <div className="skill-icon" key={index}><img src={skill.src} alt={skill.name}/></div>
-                        ))}
+                        {frontend_skill_list.map((skill, index) => {
+                            const img_path = require(`../images/${skill.image}`);
+                            return (
+                                <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                            );
+                        })}
                     </div>
-                </div>
-                <div className={`skill-tag ${backendIsVisible ? 'fade-in' : ''}`} ref={backendContainerRef}>
+                </div>) : null}
+                {backend_skill_list ? (
+                    <div className={`skill-tag ${backendIsVisible ? 'fade-in' : ''}`} ref={backendContainerRef}>
                     <div className="title">Backend-End Skills</div>
                     <div className="content">
-                        {backend_skill_list.map((skill, index) => (
-                            <div className="skill-icon" key={index}><img src={skill.src} alt={skill.name}/></div>
-                        ))}
+                        {backend_skill_list.map((skill, index) => {
+                            const img_path = require(`../images/${skill.image}`);
+                            return (
+                                <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                            );
+                        })}
                     </div>
                 </div>
+                ) : null}
             </div>
         </div>
     );
