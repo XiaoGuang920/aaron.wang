@@ -126,7 +126,7 @@
 
 .pined-projects .projects-content {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1em;
@@ -134,10 +134,13 @@
 
 .pined-projects .project {
     font-size: 24px;
+    height: 25em;
     max-width: calc(50% - 4em);
     padding: 1.5em;
     border: 2px var(--clr-blue-300) solid;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-20px);
@@ -172,6 +175,7 @@
     margin-top: 6em;
     width: 100%;
     height: 12em;
+    flex: 1;
 }
 
 .pined-projects .project .cover-img img {

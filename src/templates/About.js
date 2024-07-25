@@ -7,60 +7,81 @@ import '../styles/About.css';
 
 import about_img from '../images/about.png';
 
+const Project = ({project}) => {
+    const [container_ref, is_visible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    });
+
+    return (
+        <div className={`project ${is_visible ? 'fade-fade-in' : ''}`} ref={container_ref}>
+            <div className="project-title">{project.title}</div>
+            <div className="project-desc">{project.description}</div>
+            <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+            <div className="cover-img">
+                <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name} />
+            </div>
+        </div>
+    );
+};
+
 function About()
 {
-    const [frontendContainerRef, frontendIsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2,
-    });
-
-    const [backendContainerRef, backendIsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2,
-    });
-
-    const [project1ContainerRef, project1IsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    });
-
-    const [project2ContainerRef, project2IsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    });
-
-    const [project3ContainerRef, project3IsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    });
-
-    const [project4ContainerRef, project4IsVisible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    });
+    const fetch_ref = useRef(false);
 
     const [frontend_skill_list, setFrontendSkillList] = useState(null);
     const [backend_skill_list, setBackendSkillList] = useState(null);
+    
+    const [pined_project_list, setPinedProjectList] = useState(null);
+
+    const [frontend_container_ref, frontend_is_visible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2,
+    });
+
+    const [backend_container_ref, backend_is_visible] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2,
+    });
 
     useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/data/skills.json`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(response => response.json())
-            .then(skills => {
+        const fetchData = async () => {
+            try {
+                const skills_response = await fetch(`${process.env.PUBLIC_URL}/data/skills.json`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                });
+    
+                const pined_projects_response = await fetch(`${process.env.PUBLIC_URL}/data/pined_projects.json`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                })
+    
+                const skills = await skills_response.json();
+                const pined_projects = await pined_projects_response.json();
+
                 setFrontendSkillList(skills.frontend_skills);
                 setBackendSkillList(skills.backend_skills);
-            })
-            .catch(error => console.error('Fetching Content Error:', error));
+
+                setPinedProjectList(pined_projects.pined_projects);
+            } catch (error) {
+                console.error('Fetching Content Error:', error);
+            } finally {
+                // set loading
+            }
+        };
+
+        if (!fetch_ref.current) {
+            fetch_ref.current = true;
+            fetchData();
+        }
     }, []);
 
     return (
@@ -78,45 +99,17 @@ function About()
             <div className="pined-projects">
                 <div className="title">Featured Projects</div>
                 <div className="projects-content">
-                    <div className={`project ${project1IsVisible ? 'fade-fade-in' : ''}`} ref={project1ContainerRef}>
-                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
-                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
-                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-                        <div className="cover-img">
-                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
-                        </div>
-                    </div>
-                    <div className={`project ${project2IsVisible ? 'fade-fade-in' : ''}`} ref={project2ContainerRef}>
-                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
-                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
-                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-                        <div className="cover-img">
-                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
-                        </div>
-                    </div>
-                    <div className={`project ${project3IsVisible ? 'fade-fade-in' : ''}`} ref={project3ContainerRef}>
-                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
-                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
-                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-                        <div className="cover-img">
-                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
-                        </div>
-                    </div>
-                    <div className={`project ${project4IsVisible ? 'fade-fade-in' : ''}`} ref={project4ContainerRef}>
-                        <div className="project-title">Wall手言合-多樣互動式電視牆</div>
-                        <div className="project-desc">這款沉浸式互動電視牆，集展示功能、觸控、肢體控制、語音控制於一體，並結合手機AR功能提供多場景導覽服務。全息投影技術打造的沉浸式體驗，讓使用者欲罷不能，徹底顛覆傳統展示方式。</div>
-                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-                        <div className="cover-img">
-                            <img src={`${process.env.PUBLIC_URL}/images/tv-wall.png`} alt="Wall手言合" />
-                        </div>
-                    </div>
+                    {pined_project_list ? (
+                        pined_project_list.map((project, index) => (
+                            <Project key={index} project={project} />
+                        ))
+                    ) : null}
                 </div>
             </div>
 
-
             <div className="skill">
                 {frontend_skill_list ? (
-                    <div className={`skill-tag ${frontendIsVisible ? 'fade-in' : ''}`} ref={frontendContainerRef}>
+                    <div className={`skill-tag ${frontend_is_visible ? 'fade-in' : ''}`} ref={frontend_container_ref}>
                     <div className="title">Frontend-End Skills</div>
                     <div className="content">
                         {frontend_skill_list.map((skill, index) => {
@@ -128,7 +121,7 @@ function About()
                     </div>
                 </div>) : null}
                 {backend_skill_list ? (
-                    <div className={`skill-tag ${backendIsVisible ? 'fade-in' : ''}`} ref={backendContainerRef}>
+                    <div className={`skill-tag ${backend_is_visible ? 'fade-in' : ''}`} ref={backend_container_ref}>
                     <div className="title">Backend-End Skills</div>
                     <div className="content">
                         {backend_skill_list.map((skill, index) => {
