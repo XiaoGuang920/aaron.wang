@@ -28,12 +28,43 @@ const Project = ({project}) => {
 
 function About()
 {
+    const SKILLS_CACHE_RESET_TIME_STAMP = '20240729072900';
+    const PINED_PROJECTS_CACHE_RESET_TIME_STAMP = '20240729072900';
+    
     const fetch_ref = useRef(false);
 
-    const [frontend_skill_list, setFrontendSkillList] = useState(null);
-    const [backend_skill_list, setBackendSkillList] = useState(null);
+    const [frontend_skill_list, setFrontendSkillList] = useState(() => {
+        const cache_skill_reset_time_stamp = localStorage.getItem('skills_cache_reset_time_stamp');
+        const cache_fronted_skill_list = localStorage.getItem('frontend_skill_list');
+
+        if (cache_fronted_skill_list && SKILLS_CACHE_RESET_TIME_STAMP === cache_skill_reset_time_stamp) {
+            return JSON.parse(cache_fronted_skill_list);
+        } else {
+            return null;
+        }
+    });
+
+    const [backend_skill_list, setBackendSkillList] = useState(() => {
+        const cache_skill_reset_time_stamp = localStorage.getItem('skills_cache_reset_time_stamp');
+        const cache_backend_skill_list = localStorage.getItem('backend_skill_list');
+
+        if (cache_backend_skill_list && SKILLS_CACHE_RESET_TIME_STAMP === cache_skill_reset_time_stamp) {
+            return JSON.parse(cache_backend_skill_list);
+        } else {
+            return null;
+        }
+    });
     
-    const [pined_project_list, setPinedProjectList] = useState(null);
+    const [pined_project_list, setPinedProjectList] = useState(() => {
+        const cache_pined_projects_reset_time_stamp = localStorage.getItem('pined_projects_cache_reset_time_stamp');
+        const cache_pined_project_list = localStorage.getItem('pined_projects_list');
+
+        if (cache_pined_project_list && PINED_PROJECTS_CACHE_RESET_TIME_STAMP === cache_pined_projects_reset_time_stamp) {
+            return JSON.parse(cache_pined_project_list);
+        } else {
+            return null;
+        }
+    });
 
     const [frontend_container_ref, frontend_is_visible] = useElementOnScreen({
         root: null,
@@ -50,27 +81,45 @@ function About()
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const skills_response = await fetch(`${process.env.PUBLIC_URL}/data/skills.json`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-    
-                const pined_projects_response = await fetch(`${process.env.PUBLIC_URL}/data/pined_projects.json`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                })
-    
-                const skills = await skills_response.json();
-                const pined_projects = await pined_projects_response.json();
+                let skills_response = null;
+                let pined_projects_response = null;
 
-                setFrontendSkillList(skills.frontend_skills);
-                setBackendSkillList(skills.backend_skills);
+                if (frontend_skill_list === null || backend_skill_list === null) {
+                    skills_response = await fetch(`${process.env.PUBLIC_URL}/data/skills.json`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    });
+                }
+                
+                if (pined_project_list === null) {
+                    pined_projects_response = await fetch(`${process.env.PUBLIC_URL}/data/pined_projects.json`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    });
+                }
 
-                setPinedProjectList(pined_projects.pined_projects);
+                const skills = skills_response ? await skills_response.json() : null;
+                const pined_projects = pined_projects_response ? await pined_projects_response.json() : null;
+
+                if (skills) {
+                    setFrontendSkillList(skills.frontend_skills);
+                    localStorage.setItem('frontend_skill_list', JSON.stringify(skills.frontend_skills));
+
+                    setBackendSkillList(skills.backend_skills);
+                    localStorage.setItem('backend_skill_list', JSON.stringify(skills.backend_skills));
+                }
+                
+                if (pined_projects) {
+                    setPinedProjectList(pined_projects.pined_projects);
+                    localStorage.setItem('pined_projects_list', JSON.stringify(pined_projects.pined_projects));
+                }
+
+                localStorage.setItem('skills_cache_reset_time_stamp', SKILLS_CACHE_RESET_TIME_STAMP);
+                localStorage.setItem('pined_projects_cache_reset_time_stamp', PINED_PROJECTS_CACHE_RESET_TIME_STAMP);
             } catch (error) {
                 console.error('Fetching Content Error:', error);
             } finally {
@@ -82,7 +131,7 @@ function About()
             fetch_ref.current = true;
             fetchData();
         }
-    }, []);
+    }, [frontend_skill_list, backend_skill_list, pined_project_list]);
 
     return (
         <div className="container">

@@ -45,7 +45,7 @@
 .skill-tag {
     width: 50%;
     padding: 1em;
-    background-color: var(--clr-gray-700);
+    background-color: var(--clr-gray-600);
     border-radius: 5px;
     opacity: 0;
 }
