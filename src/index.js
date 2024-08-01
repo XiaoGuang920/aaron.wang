@@ -5,6 +5,7 @@ import Header from './templates/Header';
 import Footer from './templates/Footer';
 import Bpp from './Bpp';
 import About from './templates/About';
+import Projects from './templates/Projects';
 import NotFound from './NotFound';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
@@ -17,6 +18,7 @@ root.render(
             <Routes>
                 <Route index exact path="/" element={<About />}/>
                 <Route path="about" element={<Bpp />}/>
+                <Route path="projects" element={<Projects />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
             <Footer />

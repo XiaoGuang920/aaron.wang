@@ -1,8 +1,9 @@
 .footer {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 500;
     margin-top: 3em;
-    border-top: 3px var(--clr-gray-800) solid;
+    border-top: 4px var(--clr-gray-800) solid;
+    color: var(--clr-gray-600);
     display: flex;
     align-items: center;
     justify-content: space-between;

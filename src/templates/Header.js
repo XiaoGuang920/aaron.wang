@@ -21,7 +21,7 @@ function Header() {
             <img src={logo} className="logo" alt="logo"/>
             <div className="link">
                 <div onClick={() => navigateTo('/')}>About Me</div>
-                <div onClick={() => navigateTo('/about')}>Projects</div>
+                <div onClick={() => navigateTo('/projects')}>Projects</div>
                 <div onClick={openResume}>Resume</div>
             </div>
         </div>

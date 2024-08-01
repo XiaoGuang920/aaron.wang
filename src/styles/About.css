@@ -1,7 +1,6 @@
 .about {
     width: calc(100vw - 16vw);
     height: calc(100vh - 3em);
-    padding-top: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,53 +20,84 @@
 }
 
 .about-desc {
+    font-family: "Noto Sans TC", sans-serif;
     width: 50%;
 }
 
-.about-desc .title {
+.about-desc .name {
+    font-weight: 900;
     font-size: 42px;
-    margin-bottom: 0.25em;
+    color: var(--clr-blue-500);
+    animation: fadeIn .8s ease-in-out, leftTranslateIn .8s ease-in-out;
+}
+
+.about-desc .hash-tag {
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--clr-gray-600);
+    margin-top: 0.5em;
+    animation: fadeIn .8s ease-in-out, leftTranslateIn .8s ease-in-out;
+}
+
+.about-desc .title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 0.75em;
     animation: fadeIn .8s ease-in-out, leftTranslateIn .8s ease-in-out;
 }
 
 .about-desc .content {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0.75em;
+    line-height: 1.75em;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn .8s ease-in-out, leftTranslateIn .8s ease-in-out;
+}
+
+.skill-block {
+    margin-top: 1em;
+    padding: 0.5em 0.5em 0.75em 0.5em;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    border: 3px var(--clr-blue-300) solid;
+    border-radius: 15px;
     animation: fadeIn .8s ease-in-out, leftTranslateIn .8s ease-in-out;
 }
 
 .skill {
+    font-family: 'Oswald', sans-serif;
     margin-top: 2em;
     display: flex;
+    gap: 1em;
     align-items: stretch;
     justify-content: center;
-    gap: 2em;
 }
 
-.skill-tag {
-    width: 50%;
-    padding: 1em;
-    background-color: var(--clr-gray-600);
-    border-radius: 5px;
-    opacity: 0;
+.skill-tag .skill-title {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 800;
+    animation: fadeIn .8s ease-in-out;
 }
 
-.skill-tag .title {
-    font-size: 24px;
-    line-height: 1em;
-}
-
-.skill-tag .content {
+.skill-tag .skill-content {
     margin-top: 1em;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     gap: 1em;
+    animation: fadeIn .8s ease-in-out;
 }
 
-.skill-tag .content .skill-icon {
-    width: 1.5em;
-    height: 1.5em;
+.skill-tag .skill-content .skill-icon {
+    width: 1.25em;
+    height: 1.25em;
 }
 
-.skill-tag .content .skill-icon img {
+.skill-tag .skill-content .skill-icon img {
     width: 100%;
     height: 100%;
 }
@@ -117,7 +147,12 @@
     }
 }
 
+.pined-projects {
+    font-family: "Noto Sans TC", sans-serif;
+}
+
 .pined-projects .title {
+    font-family: 'Oswald', sans-serif;
     font-size: 34px;
     font-weight: 400;
     margin-top: 2em;
@@ -137,13 +172,22 @@
     height: 25em;
     max-width: calc(50% - 4em);
     padding: 1.5em;
-    border: 2px var(--clr-blue-300) solid;
+    border: 3px var(--clr-blue-900) solid;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-20px);
+}
+
+.pined-projects .project:hover {
+    border: 3px var(--clr-blue-300) solid;
+}
+
+.pined-projects .project:hover > .cover-img img {
+    width: calc(100% + 6em);
+    transition: width .5s ease-in-out;
 }
 
 .pined-projects .project.fade-fade-in {
@@ -160,11 +204,12 @@
 .pined-projects .project .project-desc {
     font-size: 20px;
     overflow-wrap: anywhere;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 0.5em;
 }
 
 .pined-projects .project .link {
+    font-family: 'Oswald', sans-serif;
     font-size: 20px;
     font-weight: 500;
     margin-top: 0.5em;
@@ -184,11 +229,6 @@
     width: calc(100% + 3em);
     bottom: -15%;
     left: 50%;
-    transition: width .5s ease-in-out;
-}
-
-.pined-projects .project .cover-img:hover > img {
-    width: calc(100% + 6em);
     transition: width .5s ease-in-out;
 }
 

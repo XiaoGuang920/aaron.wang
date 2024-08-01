@@ -66,18 +66,6 @@ function About()
         }
     });
 
-    const [frontend_container_ref, frontend_is_visible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2,
-    });
-
-    const [backend_container_ref, backend_is_visible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2,
-    });
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -135,17 +123,50 @@ function About()
 
     return (
         <div className="container">
-            <div className="about">
+            <section className="about">
                 <div className="about-img">
                     <img src={about_img} alt="about"/>
                 </div>
                 <div className="about-desc">
-                    <div className="title">Hi👋 This is Aaron Wang.</div>
-                    <div className="content">A full-stack developer.</div>
+                    <div className="name">Aaron Wang 王仁哲</div>
+                    <div className="hash-tag">Software Engineer | Full Stack Developer | Dreamer</div>
+                    <div className="title">Hi👋&ensp;我是王仁哲，是一位全端開發者</div>
+                    <div className="content">
+                        <span>以架設雲端系統、設計調教資料庫、開發網站維生的小小工程師</span>
+                        <span>有任何相關想實現的藍圖都歡迎聯絡我～</span>
+                    </div>
+                    <div className="skill-block">
+                        {frontend_skill_list ? (
+                            <div className="skill-tag">
+                                <div className="skill-title">Frontend Skills</div>
+                                <div className="skill-content">
+                                    {frontend_skill_list.map((skill, index) => {
+                                        const img_path = require(`../images/${skill.image}`);
+                                        return (
+                                            <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        ) : null}
+                        {backend_skill_list ? (
+                            <div className="skill-tag">
+                                <div className="skill-title">Backend Skills</div>
+                                <div className="skill-content">
+                                    {backend_skill_list.map((skill, index) => {
+                                        const img_path = require(`../images/${skill.image}`);
+                                        return (
+                                            <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        ) : null}
+                    </div>
                 </div>
-            </div>
+            </section>
             
-            <div className="pined-projects">
+            <section className="pined-projects">
                 <div className="title">Featured Projects</div>
                 <div className="projects-content">
                     {pined_project_list ? (
@@ -154,35 +175,7 @@ function About()
                         ))
                     ) : null}
                 </div>
-            </div>
-
-            <div className="skill">
-                {frontend_skill_list ? (
-                    <div className={`skill-tag ${frontend_is_visible ? 'fade-in' : ''}`} ref={frontend_container_ref}>
-                    <div className="title">Frontend-End Skills</div>
-                    <div className="content">
-                        {frontend_skill_list.map((skill, index) => {
-                            const img_path = require(`../images/${skill.image}`);
-                            return (
-                                <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
-                            );
-                        })}
-                    </div>
-                </div>) : null}
-                {backend_skill_list ? (
-                    <div className={`skill-tag ${backend_is_visible ? 'fade-in' : ''}`} ref={backend_container_ref}>
-                    <div className="title">Backend-End Skills</div>
-                    <div className="content">
-                        {backend_skill_list.map((skill, index) => {
-                            const img_path = require(`../images/${skill.image}`);
-                            return (
-                                <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
-                            );
-                        })}
-                    </div>
-                </div>
-                ) : null}
-            </div>
+            </section>
         </div>
     );
 }
