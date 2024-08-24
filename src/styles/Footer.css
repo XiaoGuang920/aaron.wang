@@ -10,12 +10,19 @@
     padding: 1.5em 4vw;
 }
 
+.footer .link-content {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
 .footer .icon-circle {
     width: 1.75em;
     height: 1.75em;
     border-radius: 30px;
     color: var(--clr-blue-800);
     background-color: var(--clr-gray-500);
+    border: 1px var(--clr-gray-500) solid;
     display: flex;
     align-items: center;
     justify-content: center;

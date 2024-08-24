@@ -132,7 +132,7 @@ function About()
                     <div className="hash-tag">Software Engineer | Full Stack Developer | Dreamer</div>
                     <div className="title">Hi👋&ensp;我是王仁哲，是一位全端開發者</div>
                     <div className="content">
-                        <span>以架設雲端系統、設計調教資料庫、開發網站維生的小小工程師</span>
+                        <span>以架設雲端系統、設計調校資料庫、開發網站維生的小小工程師</span>
                         <span>有任何相關想實現的藍圖都歡迎聯絡我～</span>
                     </div>
                     <div className="skill-block">
@@ -166,6 +166,32 @@ function About()
                 </div>
             </section>
             
+            <section className="function-block">
+                <div className="function-item">
+                    
+                </div>
+                <div className="function-item">
+                    
+                </div>
+                <div className="function-item">
+                    
+                </div>
+                <div className="function-item">
+                    
+                </div>
+            </section>
+
+            <section class="marquee">
+                <div class="marquee-inner">
+                    <p>這是一段會無限重複輪播的文字。&emsp;This is test text.</p>
+                    <p>這是一段會無限重複輪播的文字。&emsp;This is test text.</p>
+                </div>
+            </section>
+
+            <section className="services">
+                <div className="title">Services</div>
+            </section>
+
             <section className="pined-projects">
                 <div className="title">Featured Projects</div>
                 <div className="projects-content">
