@@ -17,13 +17,13 @@ function Footer()
     };
 
     const openLinkIn = () => {
-        const resume_href = 'https://www.linkedin.com/in/仁哲-王-b68905226';
-        window.open(resume_href);
+        const linkin_href = 'https://www.linkedin.com/in/仁哲-王-b68905226';
+        window.open(linkin_href);
     };
 
     const openGithub = () => {
-        const resume_href = 'https://github.com/XiaoGuang920';
-        window.open(resume_href);
+        const github_href = 'https://github.com/XiaoGuang920';
+        window.open(github_href);
     };
     
     return (

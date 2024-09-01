@@ -1,35 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import useElementOnScreen from '../libraries/UseElementOnScreen';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+import Map from './Map';
+import Carousel from './Carousel';
 
 import '../styles/About.css';
 
 import about_img from '../images/about.png';
 
-const Project = ({project}) => {
-    const [container_ref, is_visible] = useElementOnScreen({
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    });
-
-    return (
-        <div className={`project ${is_visible ? 'fade-fade-in' : ''}`} ref={container_ref}>
-            <div className="project-title">{project.title}</div>
-            <div className="project-desc">{project.description}</div>
-            <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-            <div className="cover-img">
-                <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name} />
-            </div>
-        </div>
-    );
-};
-
 function About()
 {
-    const SKILLS_CACHE_RESET_TIME_STAMP = '20240729072900';
-    const PINED_PROJECTS_CACHE_RESET_TIME_STAMP = '20240729072900';
+    const SKILLS_CACHE_RESET_TIME_STAMP = '20240901160000';
+    const PINED_PROJECTS_CACHE_RESET_TIME_STAMP = '20240901160000';
     
     const fetch_ref = useRef(false);
 
@@ -135,56 +116,54 @@ function About()
                         <span>以架設雲端系統、設計調校資料庫、開發網站維生的小小工程師</span>
                         <span>有任何相關想實現的藍圖都歡迎聯絡我～</span>
                     </div>
-                    <div className="skill-block">
-                        {frontend_skill_list ? (
-                            <div className="skill-tag">
-                                <div className="skill-title">Frontend Skills</div>
-                                <div className="skill-content">
-                                    {frontend_skill_list.map((skill, index) => {
-                                        const img_path = require(`../images/${skill.image}`);
-                                        return (
-                                            <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        ) : null}
-                        {backend_skill_list ? (
-                            <div className="skill-tag">
-                                <div className="skill-title">Backend Skills</div>
-                                <div className="skill-content">
-                                    {backend_skill_list.map((skill, index) => {
-                                        const img_path = require(`../images/${skill.image}`);
-                                        return (
-                                            <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        ) : null}
-                    </div>
                 </div>
             </section>
             
             <section className="function-block">
-                <div className="function-item">
-                    
+                <div className="function-item col-2">
+                {frontend_skill_list ? (
+                    <div className="skill-tag">
+                        <div className="skill-title">Frontend Skills</div>
+                        <div className="skill-content">
+                            {frontend_skill_list.map((skill, index) => {
+                                const img_path = require(`../images/${skill.image}`);
+                                return (
+                                    <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ) : null}
+                {backend_skill_list ? (
+                    <div className="skill-tag">
+                        <div className="skill-title">Backend Skills</div>
+                        <div className="skill-content">
+                            {backend_skill_list.map((skill, index) => {
+                                const img_path = require(`../images/${skill.image}`);
+                                return (
+                                    <div className="skill-icon" key={index}><img src={img_path} alt={skill.name}/></div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ) : null}
                 </div>
-                <div className="function-item">
-                    
+                <div className="function-item map">
+                    {/* <div className="title">Where Am I</div> */}
+                    <Map latitude={24.776336} longitude={121.021911} />
                 </div>
-                <div className="function-item">
-                    
-                </div>
-                <div className="function-item">
-                    
+                <div className="function-item personality">
+                    <div className="title">Personality</div>
+                    <div className="description">
+                        耐心、積極、抗壓性、好奇心、職人精神
+                    </div>
                 </div>
             </section>
 
-            <section class="marquee">
-                <div class="marquee-inner">
-                    <p>這是一段會無限重複輪播的文字。&emsp;This is test text.</p>
-                    <p>這是一段會無限重複輪播的文字。&emsp;This is test text.</p>
+            <section className="marquee">
+                <div className="marquee-inner">
+                    <p>簡單是終極的複雜。&emsp;Simplicity is the ultimate sophistication.</p>
+                    <p>簡單是終極的複雜。&emsp;Simplicity is the ultimate sophistication.</p>
                 </div>
             </section>
 
@@ -192,16 +171,16 @@ function About()
                 <div className="title">Services</div>
             </section>
 
-            <section className="pined-projects">
-                <div className="title">Featured Projects</div>
-                <div className="projects-content">
-                    {pined_project_list ? (
-                        pined_project_list.map((project, index) => (
-                            <Project key={index} project={project} />
-                        ))
-                    ) : null}
-                </div>
+            <section className="experiences">
+                <div className="title">Experiences</div>
             </section>
+
+            {pined_project_list ? (
+                <section className="feature-projects">
+                    <div className="title">Featured Projects</div>
+                    <Carousel projects={pined_project_list} />
+                </section>
+            ) : null}
         </div>
     );
 }

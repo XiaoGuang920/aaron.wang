@@ -1,0 +1,78 @@
+.project-list {
+    font-family: 'Noto Sans TC', sans-serif;
+    animation: fadeIn .8s ease-in-out, downTranslateIn .8s ease-in-out;;
+}
+
+.project-list .projects-content {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.project-list .project {
+    font-size: 24px;
+    height: 25em;
+    max-width: calc(50% - 4em);
+    padding: 1.5em;
+    border: 3px var(--clr-blue-900) solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.project-list .project:hover {
+    border: 3px var(--clr-blue-300) solid;
+}
+
+.project-list .project:hover > .cover-img img {
+    width: calc(100% + 6em);
+    transition: width .5s ease-in-out;
+}
+
+.project-list .project.fade-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .8s ease-in-out;
+}
+
+.project-list .project .project-title {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.project-list .project .project-desc {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+    font-weight: 400;
+    margin-top: 0.5em;
+}
+
+.project-list .project .link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 0.5em;
+    cursor: pointer;
+}
+
+.project-list .project .cover-img {
+    position: relative;
+    margin-top: 6em;
+    width: 100%;
+    height: 12em;
+    flex: 1;
+}
+
+.project-list .project .cover-img img {
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: calc(100% + 3em);
+    bottom: -15%;
+    left: 50%;
+    transition: width .5s ease-in-out;
+}

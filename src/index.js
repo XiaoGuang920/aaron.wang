@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Header from './templates/Header';
 import Footer from './templates/Footer';
-import Bpp from './Bpp';
 import About from './templates/About';
 import Projects from './templates/Projects';
 import NotFound from './NotFound';
@@ -17,7 +16,6 @@ root.render(
             <Header />
             <Routes>
                 <Route index exact path="/" element={<About />}/>
-                <Route path="about" element={<Bpp />}/>
                 <Route path="projects" element={<Projects />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
