@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aaron.wang/static/css/main.1aa2fc11.css",
-    "main.js": "/aaron.wang/static/js/main.dd163b5c.js",
+    "main.css": "/aaron.wang/static/css/main.60be02a8.css",
+    "main.js": "/aaron.wang/static/js/main.f5d174fd.js",
     "static/media/about.png": "/aaron.wang/static/media/about.a4d0b5736ab59a211ed5.png",
     "static/media/php.svg": "/aaron.wang/static/media/php.f70702114fba9442bedd.svg",
     "static/media/logo.png": "/aaron.wang/static/media/logo.7a970aca5e9429a12959.png",
@@ -28,11 +28,11 @@
     "static/media/p5js.svg": "/aaron.wang/static/media/p5js.fd5e940f76eecab1d78d.svg",
     "static/media/react.svg": "/aaron.wang/static/media/react.928f956d9c8ebcffb98a.svg",
     "static/media/index.cjs": "/aaron.wang/static/media/index.cd351d7c31d0d3fccf96.cjs",
-    "main.1aa2fc11.css.map": "/aaron.wang/static/css/main.1aa2fc11.css.map",
-    "main.dd163b5c.js.map": "/aaron.wang/static/js/main.dd163b5c.js.map"
+    "main.60be02a8.css.map": "/aaron.wang/static/css/main.60be02a8.css.map",
+    "main.f5d174fd.js.map": "/aaron.wang/static/js/main.f5d174fd.js.map"
   },
   "entrypoints": [
-    "static/css/main.1aa2fc11.css",
-    "static/js/main.dd163b5c.js"
+    "static/css/main.60be02a8.css",
+    "static/js/main.f5d174fd.js"
   ]
 }
