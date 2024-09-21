@@ -14,7 +14,7 @@ function Map({ latitude, longitude })
     const custom_icon = L.icon({
         iconUrl: brain,
         iconSize: [80, 80], // 圖標的大小
-        iconAnchor: [45, 80], // 圖標的錨點，對應於圖標放置時地圖上的位置
+        iconAnchor: [45, 50], // 圖標的錨點，對應於圖標放置時地圖上的位置
         popupAnchor: [-3, -80], // 彈出窗口的錨點
     });
 

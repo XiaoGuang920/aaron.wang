@@ -1,51 +1,64 @@
 #header {
-    font-family: 'Oswald', sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 24px;
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    width: calc(100% - 3em);
-    height: 3.5em;
-    background-color: var(--clr-light);
-    border-radius: 5px;
-    padding: 0em 0.5em;
+    @apply 
+        w-11/12
+        h-14
+        lg:h-20
+        md:h-14
+        sm:h-14
+        absolute
+        top-6
+        left-2/4
+        -translate-x-1/2 
+        translate-y-0
+        not-italic 
+        text-base 
+        font-medium
+        bg-gray-100
+        px-2
+        rounded;
+    
     animation: headerFadeIn .8s ease-in-out, headerTranslateIn .8s ease-in-out;
 }
 
 @keyframes headerFadeIn {
     from {
-        opacity: 0;
+        @apply opacity-0;
     }
     to {
-        opacity: 1;
+        @apply opacity-100;
     }
 }
 
 @keyframes headerTranslateIn {
     from {
-        top: 0;
+        @apply top-0;
     }
     to {
-        top: 1em;
+        @apply top-4;
     }
 }
 
 #header .logo {
-    height: 100%;
+    @apply 
+        h-full 
+        float-left;
 }
 
 #header .link {
-    float: right;
-    height: 100%;
-    line-height: 3.5em;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-right: 1em;
-    color: var(--clr-gray-800);
-    cursor: pointer;
+    @apply
+        hidden
+        lg:flex
+        md:hidden
+        sm:hidden
+        h-full 
+        float-right 
+        text-base
+        lg:text-2xl
+        md:text-xl
+        sm:text-xl
+        text-gray-600
+        mr-4
+        items-center
+        gap-6
+        cursor-pointer;
 }

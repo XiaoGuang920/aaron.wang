@@ -1,133 +1,217 @@
 .carousel {
-    position: relative;
-    width: 100%;
-    height: 30em;
-    font-family: 'Noto Sans TC', sans-serif;
+    @apply
+        w-full
+        h-96
+        lg:h-lg-carousel
+        md:h-lg-carousel
+        sm:h-lg-carousel
+        h-base-carousel-slide
+        relative
+        mt-8
+        mb-8
+        overflow-visible;
+
     animation: fadeIn .8s ease-in-out, downTranslateIn .8s ease-in-out;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    cursor: pointer;
 }
 
 .carousel .carousel-button {
-    position: absolute;
-    font-size: 50px;
-    transform: translate(0, -50%);
-    top: 50%;
-    padding: 10px;
     color: var(--clr-gray-500);
     background-color: var(--clr-gray-900);
-    border-radius: 30px;
-    border: 1px var(--clr-gray-500) solid;
-    cursor: pointer;
-    transition: color .5s ease-in-out, border .5s ease-in-out;
-    z-index: 1;
+    border-color: var(--clr-gray-500);
+
+    @apply
+        lg:text-3xl
+        md:text-lg
+        text-sm
+        p-4
+        border
+        border-solid
+        rounded-full
+        absolute
+        flex
+        items-center
+        justify-center
+        top-1/2
+        -translate-y-1/2
+        cursor-pointer
+        z-20;
+
+    transition: color .3s ease-in-out, border-color .3s ease-in-out;
 }
 
 .carousel .carousel-button:hover {
     color: var(--clr-blue-300);
-    border: 3px var(--clr-blue-300) solid;
+    border-color: var(--clr-blue-300);
 }
 
 .carousel .carousel-button.left {
-    left: -1em;
+    @apply left-0;
 }
 
 .carousel .carousel-button.right {
-    right: -1em;
+    @apply right-0;
 }
 
-.carousel .carousel-slides {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    font-size: 24px;
-    width: 100vw;
-    height: 100%;
-    z-index: -1;
+.carousel .carousel-slide {
+    border-color: var(--clr-blue-900);
+    background-color: rgba(23, 32, 39);
+
+    @apply
+        w-96
+        lg:w-lg-carousel-slide
+        md:h-fit
+        sm:h-fit
+        h-fit
+        lg:pt-8
+        md:pt-8
+        pt-6
+        rounded-xl
+        border-2
+        border-solid
+        absolute
+        -translate-x-1/2
+        -translate-y-1/2
+        top-1/2
+        left-1/2
+        opacity-0
+        duration-700
+        transition-all
+        -z-10
+        overflow-hidden;
 }
 
-.carousel .carousel-slides .carousel-slide {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    width: calc(50% - 20em);
-    height: calc(50% - 3em);
-    padding: 1.5em;
-    border: 3px var(--clr-blue-900) solid;
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: -1;
-    opacity: 0;
+.carousel .carousel-slide.active {
+    background-color: rgba(23, 32, 39);
+
+    @apply
+        w-full
+        lg:w-lg-carousel-slide-active
+        md:w-9/12
+        sm:w-full
+        lg:h-lg-carousel-slide-active
+        md:h-fit
+        sm:h-fit
+        h-fit
+        left-1/2
+        blur-0
+        opacity-100
+        z-10
+        cursor-pointer;
+}
+
+.carousel .carousel-slide.left {
+    @apply
+        w-96
+        lg:w-96
+        lg:h-lg-carousel-slide
+        left-full
+        blur-md
+        opacity-100
+        -z-10;
+}
+
+.carousel .carousel-slide.right {
+    @apply
+        w-96
+        lg:w-96
+        lg:h-lg-carousel-slide
+        left-0
+        blur-md
+        opacity-100
+        -z-10;
+}
+
+.carousel .carousel-slide .project-title {
+    @apply
+        lg:text-3xl
+        md:text-2xl
+        text-lg
+        font-extrabold
+        lg:pl-8
+        md:pl-8
+        pl-6
+        lg:pr-8
+        md:pr-8
+        pr-6;
+}
+
+.carousel .carousel-slide .project-desc {
+    @apply
+        lg:text-xl
+        md:text-lg
+        text-base
+        font-normal
+        mt-4
+        lg:pl-8
+        md:pl-8
+        pl-6
+        lg:pr-8
+        md:pr-8
+        pr-6
+        break-normal;
+}
+
+.carousel .carousel-slide .link {
+    @apply
+        lg:text-xl
+        md:text-lg
+        text-base
+        font-medium
+        mt-4
+        lg:pl-8
+        md:pl-8
+        pl-6
+        lg:pr-8
+        md:pr-8
+        pr-6
+        cursor-pointer;
+}
+
+.carousel .carousel-slide .cover-img {
+    @apply
+        w-full
+        lg:h-96
+        md:h-64
+        h-48
+        lg:absolute
+        md:relative
+        relative
+        -translate-x-1/2
+        lg:-bottom-8
+        md:-bottom-8
+        bottom-0
+        left-1/2
+        lg:mt-24;
+
     transition: all .5s ease-in-out;
 }
 
-.carousel .carousel-slides .carousel-slide.active {
-    width: 40em;
-    height: calc(100% - 3em);
-    left: 50%;
-    z-index: 10;
-    filter: blur(0px);
-    opacity: 1;
+.carousel .carousel-slide .cover-img img {
+    @apply
+        w-full
+        absolute
+        -translate-x-1/2
+        left-1/2
+        -bottom-3/4;
+
+    transition: all .5s ease-in-out;
 }
 
-.carousel .carousel-slides .carousel-slide.left {
-    width: 20em;
-    height: calc(50% - 3em);
-    left: 90%;
-    filter: blur(10px);
-    z-index: -1;
-    opacity: 1;
+.carousel .carousel-slide.active .cover-img img {
+    @apply
+        w-full
+        absolute
+        -translate-x-1/2
+        left-1/2
+        bottom-0;
+
+    transition: all .5s ease-in-out;
 }
 
-.carousel .carousel-slides .carousel-slide.right {
-    width: 20em;
-    height: calc(50% - 3em);
-    left: 10%;
-    filter: blur(10px);
-    z-index: -1;
-    opacity: 1;
+.carousel-slide.active:hover {
+    border-color: var(--clr-blue-300);
 }
 
-.carousel-slides .carousel-slide.active {
-    border: 3px var(--clr-blue-300) solid;
-}
-
-.carousel .carousel-slides .carousel-slide .project-title {
-    font-size: 28px;
-    font-weight: 800;
-}
-
-.carousel .carousel-slides .carousel-slide .project-desc {
-    font-size: 20px;
-    overflow-wrap: anywhere;
-    font-weight: 400;
-    margin-top: 0.5em;
-}
-
-.carousel .carousel-slides .carousel-slide .link {
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 0.5em;
-    cursor: pointer;
-}
-
-.carousel .carousel-slides .carousel-slide .cover-img {
-    position: relative;
-    margin-top: 6em;
-    width: 100%;
-    height: 15em;
-    flex: 1;
-}
-
-.carousel .carousel-slides .carousel-slide .cover-img img {
-    position: absolute;
-    transform: translate(-50%, 0);
-    width: calc(100% + 3em);
-    bottom: -15%;
-    left: 50%;
-    transition: width .5s ease-in-out;
+.carousel-slide.active:hover > .cover-img {
+    width: 105%;
 }

@@ -25,47 +25,59 @@ const getSlideClassName = (index, current_index, item_length) => {
 function Carousel({projects})
 {
     const [current_index, setCurrentIndex] = useState(0);
+    const [is_loading, setIsLoading] = useState(false);
+
+    const setAnimationLoading = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 800);
+    }
 
     const nextSlide = (event) => {
-        event.stopPropagation();
+        if (is_loading) return;
+
         setCurrentIndex((prev_index) => 
             prev_index === projects.length - 1 ? 0 : prev_index + 1
         );
+        setAnimationLoading();
+        event.stopPropagation();
     }
 
     const prevSlide = (event) => {
-        event.stopPropagation();
+        if (is_loading) return;
+
         setCurrentIndex((prev_index) => 
             prev_index === 0 ? projects.length - 1 : prev_index - 1
         );
+        setAnimationLoading();
+        event.stopPropagation();
     }
 
     const openProject = () => {
         const project_href = projects[current_index].link ?? null;
+        
+        if (!project_href || is_loading) return;
 
-        if (project_href) {
-            window.open(project_href);
-        }
+        window.open(project_href);
     }
 
     return (
-        <div className="carousel" onClick={openProject}>
-            <div className="carousel-slides">
-                {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        className={`carousel-slide ${getSlideClassName(index, current_index, projects.length)}`}
-                        onClick={openProject}
-                    >
-                        <div className="project-title">{project.title}</div>
-                        <div className="project-desc">{project.description}</div>
-                        <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
-                        <div className="cover-img">
-                            <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name} />
-                        </div>
+        <div className="carousel">
+            {projects.map((project, index) => (
+                <div
+                    key={index}
+                    className={`carousel-slide ${getSlideClassName(index, current_index, projects.length)}`}
+                    onClick={openProject}
+                >
+                    <div className="project-title">{project.title}</div>
+                    <div className="project-desc">{project.description}</div>
+                    <div className="link">Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+                    <div className="cover-img">
+                        <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name} />
                     </div>
-                )) ?? null}
-            </div>
+                </div>
+            )) ?? null}
             <button className="carousel-button left" onClick={prevSlide}>
                 <FontAwesomeIcon icon={faArrowLeftLong}/>
             </button>

@@ -9,7 +9,7 @@ import about_img from '../images/about.png';
 
 function About()
 {
-    const SKILLS_CACHE_RESET_TIME_STAMP = '20240901160000';
+    const SKILLS_CACHE_RESET_TIME_STAMP = '20240921120000';
     const PINED_PROJECTS_CACHE_RESET_TIME_STAMP = '20240901160000';
     
     const fetch_ref = useRef(false);
@@ -162,18 +162,21 @@ function About()
 
             <section className="marquee">
                 <div className="marquee-inner">
-                    <p>簡單是終極的複雜。&emsp;Simplicity is the ultimate sophistication.</p>
-                    <p>簡單是終極的複雜。&emsp;Simplicity is the ultimate sophistication.</p>
+                    <p>&ensp;簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
+                    <p>&ensp;簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
                 </div>
             </section>
 
             <section className="services">
                 <div className="title">Services</div>
+                <div className="service-list">
+                    <div className="service-item">AAAABBBBCCCC</div> 
+                </div>           
             </section>
 
-            <section className="experiences">
+            {/* <section className="experiences">
                 <div className="title">Experiences</div>
-            </section>
+            </section> */}
 
             {pined_project_list ? (
                 <section className="feature-projects">

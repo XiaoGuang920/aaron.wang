@@ -49,6 +49,16 @@
             "name": "p5.js",
             "image": "p5js.svg",
             "alt": "p5.js"
+        },
+        {
+            "name": "tailwind",
+            "image": "tailwind.svg",
+            "alt": "tailwind"
+        },
+        {
+            "name": "bootstrap",
+            "image": "bootstrap.svg",
+            "alt": "bootstrap"
         }
     ],
     "backend_skills": [

@@ -1,3 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .w-lg-gap-half {
+        width: calc((100% - 2rem) / 4 * 2);
+    }
+
+    .w-lg-gap-three {
+        width: calc((100% - 2rem) / 4 * 1);
+    }
+
+    .w-md-gap-half {
+        width: calc((100% - 1rem) / 2);
+    }
+
+    .w-2-full {
+        width: 200%;
+    }
+
+    .h-lg-carousel {
+        height: 45rem;
+    }
+
+    .w-lg-carousel-slide {
+        width: calc(50% - 20rem);
+    }
+
+    .h-lg-carousel-slide {
+        height: calc(50% - 3rem);
+    }
+
+    .w-lg-carousel-slide-active {
+        width: 60rem;
+    }
+
+    .h-lg-carousel-slide-active {
+        height: calc(100% - 3rem);
+    }
+
+    .h-md-carousel-slide {
+        height: 30rem;
+    }
+
+    .h-base-carousel-slide {
+        height: 31rem;
+    }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
 
@@ -41,25 +91,96 @@
     --clr-background-primary: var(--clr-white);
     --clr-background-secondary: var(--clr-gray-100);
 }
-  
+
 body {
-    margin: 0;
     background-color: var(--clr-dark);
-    font-family: 'Oswald', sans-serif;
-    overflow-x: hidden;
+
+    @apply
+        m-0
+        overflow-x-hidden;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+body.no-scroll {
+    @apply overflow-hidden;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+:lang(en) {
+    font-family: 'Oswald', sans-serif;
+}
+
+:lang(zh) {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
 #root {
-    font-size: 24px;
     color: var(--clr-light);
+
+    @apply
+        overflow-hidden;
 }
 
 #root .container {
-    padding: 4.5em 8vw 0 8vw;
+    @apply
+        mx-auto
+        pl-8
+        pr-8
+        xl:pl-0
+        xl:pr-0
+        2xl:pl-0
+        2xl:pr-0
+        md:pl-10
+        md:pr-10;
+}
+
+/* -------- Animation -------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes upTranslateIn {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes downTranslateIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes leftTranslateIn {
+    from {
+        transform: translateX(20px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightTranslateIn {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        transform: translateX(0);
+    }
 }

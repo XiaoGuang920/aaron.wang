@@ -1,40 +1,59 @@
 .footer {
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 3em;
-    border-top: 4px var(--clr-gray-800) solid;
     color: var(--clr-gray-600);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5em 4vw;
+    border-color: var(--clr-gray-800);
+
+    @apply
+        lg:text-2xl
+        md:text-base
+        sm:text-sm
+        text-sm
+        font-medium
+        mt-16
+        border-solid
+        border-t-4
+        flex
+        items-center
+        justify-between
+        pt-7
+        pb-7
+        lg:pl-8
+        lg:pr-8
+        pl-4
+        pr-4;
 }
 
 .footer .link-content {
-    display: flex;
-    align-items: center;
-    gap: 1em;
+    @apply
+        flex
+        items-center
+        lg:gap-8
+        md:gap-6
+        gap-4;
 }
 
 .footer .icon-circle {
-    width: 1.75em;
-    height: 1.75em;
-    border-radius: 30px;
     color: var(--clr-blue-800);
     background-color: var(--clr-gray-500);
-    border: 1px var(--clr-gray-500) solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    border-color: var(--clr-gray-500);
+
+    @apply
+        lg:w-10
+        lg:h-10
+        md:w-8
+        md:h-8
+        w-6
+        h-6
+        rounded-full
+        border-solid
+        border-2
+        flex
+        items-center
+        justify-center
+        cursor-pointer;
 }
 
 .footer .icon-circle:hover {
     color: var(--clr-blue-300);
     background-color: var(--clr-gray-900);
-    border: 1px var(--clr-blue-300) solid;
-}
-
-.footer .icon-circle svg {
-    margin: 0.25em;
+    border-color: var(--clr-blue-300);
 }

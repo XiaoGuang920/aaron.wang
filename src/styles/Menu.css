@@ -1,0 +1,109 @@
+#menu {
+    border-color: var(--clr-gray-600);
+    background-color: var(--clr-gray-600);
+
+    @apply
+        lg:hidden
+        lg:text-3xl
+        md:text-xl
+        sm:text-xl
+        w-12
+        h-12
+        fixed
+        right-4
+        bottom-4
+        border-2
+        border-solid
+        rounded-full
+        opacity-80
+        flex
+        items-center
+        justify-center
+        transition-all
+        duration-500
+        z-50
+        cursor-pointer;
+}
+
+#menu.active {
+    color: var(--clr-blue-200);
+    border-color: var(--clr-blue-400);
+    background-color: var(--clr-gray-900);
+
+    @apply
+        border-2
+        border-solid;
+}
+
+#dialog-mask {
+    background-color: rgba(00, 00, 00, .0);
+
+    @apply
+        lg:hidden
+        fixed
+        inset-0
+        w-screen
+        h-screen
+        z-30
+        transition-all
+        duration-1000
+        opacity-0
+        invisible;
+}
+
+#dialog-mask.active {
+    background-color: rgba(00, 00, 00, .7);
+
+    @apply
+        fixed
+        w-screen
+        h-screen
+        opacity-100
+        visible;
+}
+
+#dialog {
+    background-color: var(--clr-gray-900);
+
+    @apply
+        lg:hidden
+        md:text-2xl
+        sm:text-xl
+        text-xl
+        text-center
+        font-medium
+        w-0
+        h-0
+        p-0
+        space-y-8
+        fixed
+        right-20
+        bottom-14
+        rounded-xl
+        flex
+        items-center
+        justify-center
+        flex-wrap
+        overflow-hidden
+        opacity-90
+        transition-all
+        duration-700
+        z-50;
+}
+
+#dialog div {
+    @apply
+        w-full
+        cursor-pointer;
+}
+
+#dialog.active {
+    @apply
+        md:w-48
+        sm:w-40
+        w-40
+        md:h-64
+        sm:h-60
+        h-60
+        p-6;
+}

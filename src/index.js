@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
+
 import './index.css';
+
 import Header from './templates/Header';
 import Footer from './templates/Footer';
 import About from './templates/About';
 import Projects from './templates/Projects';
+import Menu from './templates/Menu';
 import NotFound from './NotFound';
+
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +23,7 @@ root.render(
                 <Route path="projects" element={<Projects />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
+            <Menu />
             <Footer />
         </BrowserRouter>
     </React.StrictMode>
