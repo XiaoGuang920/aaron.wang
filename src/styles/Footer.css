@@ -3,6 +3,11 @@
     border-color: var(--clr-gray-800);
 
     @apply
+        absolute
+        -translate-x-1/2
+        w-screen
+        left-1/2
+        bottom-0
         lg:text-2xl
         md:text-base
         sm:text-sm

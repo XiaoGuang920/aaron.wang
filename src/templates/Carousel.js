@@ -62,6 +62,17 @@ function Carousel({projects})
         window.open(project_href);
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev_index) =>
+                prev_index === projects.length - 1 ? 0 : prev_index + 1
+            );
+            setAnimationLoading();
+        }, 8000);
+
+        return () => clearInterval(interval);
+    }, [current_index]);
+
     return (
         <div className="carousel">
             {projects.map((project, index) => (

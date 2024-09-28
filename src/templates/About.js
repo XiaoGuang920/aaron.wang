@@ -1,14 +1,51 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
+// Component
+import Header from './Header';
+import Footer from './Footer';
+import Menu from "./Menu";
 import Map from './Map';
 import Carousel from './Carousel';
 
+// stylesheet
 import '../styles/About.css';
 
+// image
 import about_img from '../images/about.png';
 
 function About()
 {
+    const service_list = [
+        {
+            title: '網站開發與建置',
+            subtitle: 'Website Development and Setup'
+        },
+        {
+            title: 'API開發與整合',
+            subtitle: 'API Development and Integration'
+        },
+        {
+            title: '資料庫設計與優化',
+            subtitle: 'Database Design and Optimization'
+        },
+        {
+            title: '雲端伺服器建置',
+            subtitle: 'Cloud Server Setup'
+        },
+        {
+            title: 'RWD跨裝置優化',
+            subtitle: 'RWD and Cross-Device Optimization'
+        },
+        {
+            title: 'CI/CD流程建置',
+            subtitle: 'CI/CD Pipeline Setup'
+        },
+        {
+            title: '系統設計與技術諮詢',
+            subtitle: 'System Design and Technical Consultation'
+        },
+    ];
+
     const SKILLS_CACHE_RESET_TIME_STAMP = '20240921120000';
     const PINED_PROJECTS_CACHE_RESET_TIME_STAMP = '20240901160000';
     
@@ -104,10 +141,13 @@ function About()
 
     return (
         <div className="container">
+            <Header />
+
             <section className="about">
                 <div className="about-img">
                     <img src={about_img} alt="about"/>
                 </div>
+
                 <div className="about-desc">
                     <div className="name">Aaron Wang 王仁哲</div>
                     <div className="hash-tag">Software Engineer | Full Stack Developer | Dreamer</div>
@@ -118,9 +158,10 @@ function About()
                     </div>
                 </div>
             </section>
-            
+
             <section className="function-block">
                 <div className="function-item col-2">
+
                 {frontend_skill_list ? (
                     <div className="skill-tag">
                         <div className="skill-title">Frontend Skills</div>
@@ -134,6 +175,7 @@ function About()
                         </div>
                     </div>
                 ) : null}
+
                 {backend_skill_list ? (
                     <div className="skill-tag">
                         <div className="skill-title">Backend Skills</div>
@@ -148,10 +190,12 @@ function About()
                     </div>
                 ) : null}
                 </div>
+
                 <div className="function-item map">
                     {/* <div className="title">Where Am I</div> */}
                     <Map latitude={24.776336} longitude={121.021911} />
                 </div>
+
                 <div className="function-item personality">
                     <div className="title">Personality</div>
                     <div className="description">
@@ -162,17 +206,26 @@ function About()
 
             <section className="marquee">
                 <div className="marquee-inner">
-                    <p>&ensp;簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
-                    <p>&ensp;簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
+                    <p>簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
                 </div>
             </section>
 
-            <section className="services">
-                <div className="title">Services</div>
-                <div className="service-list">
-                    <div className="service-item">AAAABBBBCCCC</div> 
-                </div>           
-            </section>
+            {service_list ? (
+                <section className="services">
+                    <div className="wave"></div>
+                    <div className="wave"></div>
+
+                    <div className="title">Services</div>
+                    <div className="service-list">
+                        {service_list.map((service, index) => (
+                            <div className="service-item" key={index}>
+                                {service.title}
+                                <div className="subtitle">{service.subtitle}</div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            ) : null}
 
             {/* <section className="experiences">
                 <div className="title">Experiences</div>
@@ -184,6 +237,9 @@ function About()
                     <Carousel projects={pined_project_list} />
                 </section>
             ) : null}
+
+            <Menu />
+            <Footer />
         </div>
     );
 }

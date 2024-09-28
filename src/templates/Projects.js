@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
+// Component
+import Header from './Header';
+import Footer from './Footer';
+import Menu from "./Menu";
 import Project from './Project';
 
+// stylesheet
 import '../styles/Projects.css';
 
 function Projects()
@@ -65,6 +70,8 @@ function Projects()
 
     return (
         <div className="container">
+            <Header />
+
             <section className="project-list">
                 <div className="projects-content">
                     {pined_project_list ? (
@@ -74,6 +81,9 @@ function Projects()
                     ) : null}
                 </div>
             </section>
+
+            <Menu />
+            <Footer />
         </div>
     );
 }

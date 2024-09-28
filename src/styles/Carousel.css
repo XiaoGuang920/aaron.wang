@@ -31,7 +31,6 @@
         flex
         items-center
         justify-center
-        top-1/2
         -translate-y-1/2
         cursor-pointer
         z-20;
@@ -45,11 +44,17 @@
 }
 
 .carousel .carousel-button.left {
-    @apply left-0;
+    @apply
+        lg:bottom-1/3
+        -bottom-14
+        left-0;
 }
 
 .carousel .carousel-button.right {
-    @apply right-0;
+    @apply
+        lg:bottom-1/3
+        -bottom-14
+        right-0;
 }
 
 .carousel .carousel-slide {

@@ -123,11 +123,14 @@ code {
     color: var(--clr-light);
 
     @apply
+        min-h-svh
         overflow-hidden;
 }
 
 #root .container {
     @apply
+        relative
+        min-h-screen
         mx-auto
         pl-8
         pr-8
@@ -136,7 +139,8 @@ code {
         2xl:pl-0
         2xl:pr-0
         md:pl-10
-        md:pr-10;
+        md:pr-10
+        pb-32;
 }
 
 /* -------- Animation -------- */

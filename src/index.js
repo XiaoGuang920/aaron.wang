@@ -9,7 +9,7 @@ import Footer from './templates/Footer';
 import About from './templates/About';
 import Projects from './templates/Projects';
 import Menu from './templates/Menu';
-import NotFound from './NotFound';
+import NotFound from './templates/NotFound';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -17,14 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter basename="/aaron.wang">
-            <Header />
             <Routes>
                 <Route index exact path="/" element={<About />}/>
                 <Route path="projects" element={<Projects />}/>
                 <Route path="*" element={<NotFound />}/>
             </Routes>
-            <Menu />
-            <Footer />
         </BrowserRouter>
     </React.StrictMode>
 );

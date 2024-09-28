@@ -1,5 +1,7 @@
 #header {
     @apply 
+        lg:w-full
+        md:w-full
         w-11/12
         h-14
         lg:h-20
@@ -15,7 +17,8 @@
         font-medium
         bg-gray-100
         px-2
-        rounded;
+        rounded
+        z-50;
     
     animation: headerFadeIn .8s ease-in-out, headerTranslateIn .8s ease-in-out;
 }
