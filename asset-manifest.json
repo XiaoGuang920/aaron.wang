@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/aaron.wang/static/css/main.60be02a8.css",
-    "main.js": "/aaron.wang/static/js/main.c6ae8c75.js",
+    "main.css": "/aaron.wang/static/css/main.473a966d.css",
+    "main.js": "/aaron.wang/static/js/main.0ed86ed4.js",
     "static/media/about.png": "/aaron.wang/static/media/about.a4d0b5736ab59a211ed5.png",
+    "static/media/not-found.svg": "/aaron.wang/static/media/not-found.78f6455be36939599f87582360f18428.svg",
     "static/media/php.svg": "/aaron.wang/static/media/php.f70702114fba9442bedd.svg",
     "static/media/logo.png": "/aaron.wang/static/media/logo.7a970aca5e9429a12959.png",
     "static/media/brain.svg": "/aaron.wang/static/media/brain.642f95cb49c2162bd875c602913897ad.svg",
@@ -30,11 +31,11 @@
     "static/media/p5js.svg": "/aaron.wang/static/media/p5js.fd5e940f76eecab1d78d.svg",
     "static/media/react.svg": "/aaron.wang/static/media/react.928f956d9c8ebcffb98a.svg",
     "static/media/index.cjs": "/aaron.wang/static/media/index.cd351d7c31d0d3fccf96.cjs",
-    "main.60be02a8.css.map": "/aaron.wang/static/css/main.60be02a8.css.map",
-    "main.c6ae8c75.js.map": "/aaron.wang/static/js/main.c6ae8c75.js.map"
+    "main.473a966d.css.map": "/aaron.wang/static/css/main.473a966d.css.map",
+    "main.0ed86ed4.js.map": "/aaron.wang/static/js/main.0ed86ed4.js.map"
   },
   "entrypoints": [
-    "static/css/main.60be02a8.css",
-    "static/js/main.c6ae8c75.js"
+    "static/css/main.473a966d.css",
+    "static/js/main.0ed86ed4.js"
   ]
 }
