@@ -18,31 +18,46 @@ function About()
     const service_list = [
         {
             title: '網站開發與建置',
-            subtitle: 'Website Development and Setup'
+            subtitle: 'Website Development and Setup',
+            background: 'web-development-background.jpg',
+            levitate: 'web-development.png',
+
         },
         {
             title: 'API開發與整合',
-            subtitle: 'API Development and Integration'
+            subtitle: 'API Development and Integration',
+            background: 'api-development-background.jpg',
+            levitate: 'api-development.png',
         },
         {
-            title: '資料庫設計與優化',
-            subtitle: 'Database Design and Optimization'
+            title: 'DB設計與優化',
+            subtitle: 'Database Design and Optimization',
+            background: 'database-background.jpg',
+            levitate: 'database.png',
         },
         {
             title: '雲端伺服器建置',
-            subtitle: 'Cloud Server Setup'
+            subtitle: 'Cloud Server Setup',
+            background: 'server-background.jpg',
+            levitate: 'server.png',
         },
         {
             title: 'RWD跨裝置優化',
-            subtitle: 'RWD and Cross-Device Optimization'
+            subtitle: 'RWD and Cross-Device Optimization',
+            background: 'rwd-background.jpg',
+            levitate: 'rwd.png',
         },
         {
             title: 'CI/CD流程建置',
-            subtitle: 'CI/CD Pipeline Setup'
+            subtitle: 'CI/CD Pipeline Setup',
+            background: 'pipeline-background.jpg',
+            levitate: 'pipeline.png',
         },
         {
             title: '系統設計與技術諮詢',
-            subtitle: 'System Design and Technical Consultation'
+            subtitle: 'System Design and Technical Consultation',
+            background: 'system-design-background.jpg',
+            levitate: 'system-design.png',
         },
     ];
 
@@ -206,7 +221,7 @@ function About()
 
             <section className="marquee">
                 <div className="marquee-inner">
-                    <p>簡單是終極的複雜。&ensp;Simplicity is the ultimate sophistication.</p>
+                    <p>Write The Code, Change The World.&emsp;讓我用程式來改變世界。</p>
                 </div>
             </section>
 
@@ -218,9 +233,17 @@ function About()
                     <div className="title">Services</div>
                     <div className="service-list">
                         {service_list.map((service, index) => (
-                            <div className="service-item" key={index}>
-                                {service.title}
-                                <div className="subtitle">{service.subtitle}</div>
+                            <div className="service-frame">
+                                <div className="card">
+                                    <img src={`${process.env.PUBLIC_URL}/images/${service.background}`} alt={service.title} />
+                                </div>
+                                <div className="text-frame">
+                                    <div className="card-title">{service.title}</div>
+                                    <div className="card-subtitle">{service.subtitle}</div>
+                                </div>
+                                <div className="levitate-img">
+                                    <img src={`${process.env.PUBLIC_URL}/images/${service.levitate}`} alt={service.title} />
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -234,12 +257,12 @@ function About()
             {pined_project_list ? (
                 <section className="feature-projects">
                     <div className="title">Featured Projects</div>
-                    <Carousel projects={pined_project_list} />
+                    <Carousel projects={pined_project_list}/>
                 </section>
             ) : null}
 
-            <Menu />
-            <Footer />
+            <Menu/>
+            <Footer/>
         </div>
     );
 }

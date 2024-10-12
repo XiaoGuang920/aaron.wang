@@ -89,10 +89,12 @@
     background-color: rgba(23, 32, 39);
 
     @apply
-        w-full
-        lg:w-lg-carousel-slide-active
+        2xl:w-lg-carousel-slide-active
+        xl:w-lg-carousel-slide-active
+        lg:w-9/12
         md:w-9/12
         sm:w-full
+        w-full
         lg:h-lg-carousel-slide-active
         md:h-fit
         sm:h-fit

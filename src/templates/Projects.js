@@ -73,7 +73,7 @@ function Projects()
             <Header />
 
             <section className="project-list">
-                <div className="projects-content">
+                <div className="project-content">
                     {pined_project_list ? (
                         pined_project_list.map((project, index) => (
                             <Project key={index} project={project} />

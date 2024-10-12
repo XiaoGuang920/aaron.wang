@@ -21,11 +21,14 @@ function Project({project})
 
     return (
         <div className={`project ${is_visible ? 'fade-fade-in' : ''}`} ref={container_ref}>
-            <div className="project-title">{project.title}</div>
-            <div className="project-desc">{project.description}</div>
-            <div className="link" onClick={() => openProject(project.link)}>Go To Project <FontAwesomeIcon icon={faArrowRight} /></div>
+            <div>
+                <div className="project-title">{project.title}</div>
+                <div className="project-desc">{project.description}</div>
+                <div className="link" onClick={() => openProject(project.link)}>Go To Project <FontAwesomeIcon icon={faArrowRight}/></div>
+            </div>
+
             <div className="cover-img">
-                <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name} />
+                <img src={`${process.env.PUBLIC_URL}/images/${project.image}`} alt={project.name}/>
             </div>
         </div>
     );

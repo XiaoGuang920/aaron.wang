@@ -1,7 +1,7 @@
 #header {
-    @apply 
-        lg:w-full
-        md:w-full
+    @apply
+        2xl:w-full
+        xl:w-full
         w-11/12
         h-14
         lg:h-20
@@ -37,7 +37,7 @@
         @apply top-0;
     }
     to {
-        @apply top-4;
+        @apply top-6;
     }
 }
 
