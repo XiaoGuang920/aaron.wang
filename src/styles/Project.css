@@ -19,7 +19,8 @@
         opacity-0
         overflow-hidden
         transition-all
-        duration-700;
+        duration-700
+        cursor-pointer;
 }
 
 .project-list .project:hover {

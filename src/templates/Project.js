@@ -20,7 +20,7 @@ function Project({project})
     });
 
     return (
-        <div className={`project ${is_visible ? 'fade-fade-in' : ''}`} ref={container_ref}>
+        <div className={`project ${is_visible ? 'fade-fade-in' : ''}`} ref={container_ref} onClick={() => openProject(project.link)}>
             <div>
                 <div className="project-title">{project.title}</div>
                 <div className="project-desc">{project.description}</div>

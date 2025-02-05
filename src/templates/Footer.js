@@ -7,7 +7,7 @@ import '../styles/Footer.css';
 function Footer() 
 {
     const openGmail = () => {
-        const recipient = 'jacky89920@gmail.com';
+        const recipient = 'aaron.wang890920@gmail.com';
 
         const subject = encodeURIComponent('聯絡主旨');
         const body = encodeURIComponent('');
