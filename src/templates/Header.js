@@ -12,7 +12,7 @@ function Header() {
     };
 
     const openResume = () => {
-        const resume_href = 'https://drive.google.com/file/d/1roYhoYF0Om9XxjYnnPWUq2TNhAgkZToD/view?usp=sharing';
+        const resume_href = 'https://drive.google.com/file/d/10Sbkrsgm6BHnn-qLTkZ0yeNAYKiih5mV/view?usp=sharing';
         window.open(resume_href);
     };
 
