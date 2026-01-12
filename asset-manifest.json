@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aaron.wang/static/css/main.fd9a7d80.css",
-    "main.js": "/aaron.wang/static/js/main.1c282901.js",
+    "main.css": "/aaron.wang/static/css/main.ee960886.css",
+    "main.js": "/aaron.wang/static/js/main.df4b509c.js",
     "static/media/about.png": "/aaron.wang/static/media/about.a4d0b5736ab59a211ed5.png",
     "static/media/not-found.svg": "/aaron.wang/static/media/not-found.78f6455be36939599f87582360f18428.svg",
     "static/media/php.svg": "/aaron.wang/static/media/php.f70702114fba9442bedd.svg",
@@ -30,12 +30,11 @@
     "static/media/vue.svg": "/aaron.wang/static/media/vue.f1fd23be1db9361fbcd8.svg",
     "static/media/p5js.svg": "/aaron.wang/static/media/p5js.fd5e940f76eecab1d78d.svg",
     "static/media/react.svg": "/aaron.wang/static/media/react.928f956d9c8ebcffb98a.svg",
-    "static/media/index.cjs": "/aaron.wang/static/media/index.cd351d7c31d0d3fccf96.cjs",
-    "main.fd9a7d80.css.map": "/aaron.wang/static/css/main.fd9a7d80.css.map",
-    "main.1c282901.js.map": "/aaron.wang/static/js/main.1c282901.js.map"
+    "main.ee960886.css.map": "/aaron.wang/static/css/main.ee960886.css.map",
+    "main.df4b509c.js.map": "/aaron.wang/static/js/main.df4b509c.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd9a7d80.css",
-    "static/js/main.1c282901.js"
+    "static/css/main.ee960886.css",
+    "static/js/main.df4b509c.js"
   ]
 }
