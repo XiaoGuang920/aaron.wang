@@ -20,7 +20,7 @@ function Menu() {
   const openResume = () => {
     showMenu();
     const resume_href =
-      "https://drive.google.com/file/d/1syY5B68KkPh89S40tLQGPpsCW2pf5q-P/view?usp=sharing";
+      "https://drive.google.com/file/d/1Xr9zRB7Ts6IJDL2_L-ntQvdlJedMS7vV/view?usp=sharing";
     window.open(resume_href);
   };
 
