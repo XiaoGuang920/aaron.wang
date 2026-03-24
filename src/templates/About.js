@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Menu from "./Menu";
 import Map from "./Map";
 import Carousel from "./Carousel";
+import WaterDrop from "./WaterDrop";
 
 // stylesheet
 import "../styles/About.css";
@@ -14,6 +15,7 @@ import "../styles/About.css";
 import about_img from "../images/about.png";
 
 function About() {
+  const about_ref = useRef(null);
   const service_list = [
     {
       title: "網站開發與建置",
@@ -66,10 +68,10 @@ function About() {
 
   const [frontend_skill_list, setFrontendSkillList] = useState(() => {
     const cache_skill_reset_time_stamp = localStorage.getItem(
-      "skills_cache_reset_time_stamp"
+      "skills_cache_reset_time_stamp",
     );
     const cache_fronted_skill_list = localStorage.getItem(
-      "frontend_skill_list"
+      "frontend_skill_list",
     );
 
     if (
@@ -84,7 +86,7 @@ function About() {
 
   const [backend_skill_list, setBackendSkillList] = useState(() => {
     const cache_skill_reset_time_stamp = localStorage.getItem(
-      "skills_cache_reset_time_stamp"
+      "skills_cache_reset_time_stamp",
     );
     const cache_backend_skill_list = localStorage.getItem("backend_skill_list");
 
@@ -100,10 +102,10 @@ function About() {
 
   const [pined_project_list, setPinedProjectList] = useState(() => {
     const cache_pined_projects_reset_time_stamp = localStorage.getItem(
-      "pined_projects_cache_reset_time_stamp"
+      "pined_projects_cache_reset_time_stamp",
     );
     const cache_pined_project_list = localStorage.getItem(
-      "pined_projects_list"
+      "pined_projects_list",
     );
 
     if (
@@ -131,7 +133,7 @@ function About() {
                 "Content-Type": "application/json",
                 Accept: "application/json",
               },
-            }
+            },
           );
         }
 
@@ -143,7 +145,7 @@ function About() {
                 "Content-Type": "application/json",
                 Accept: "application/json",
               },
-            }
+            },
           );
         }
 
@@ -156,13 +158,13 @@ function About() {
           setFrontendSkillList(skills.frontend_skills);
           localStorage.setItem(
             "frontend_skill_list",
-            JSON.stringify(skills.frontend_skills)
+            JSON.stringify(skills.frontend_skills),
           );
 
           setBackendSkillList(skills.backend_skills);
           localStorage.setItem(
             "backend_skill_list",
-            JSON.stringify(skills.backend_skills)
+            JSON.stringify(skills.backend_skills),
           );
         }
 
@@ -170,17 +172,17 @@ function About() {
           setPinedProjectList(pined_projects.pined_projects);
           localStorage.setItem(
             "pined_projects_list",
-            JSON.stringify(pined_projects.pined_projects)
+            JSON.stringify(pined_projects.pined_projects),
           );
         }
 
         localStorage.setItem(
           "skills_cache_reset_time_stamp",
-          SKILLS_CACHE_RESET_TIME_STAMP
+          SKILLS_CACHE_RESET_TIME_STAMP,
         );
         localStorage.setItem(
           "pined_projects_cache_reset_time_stamp",
-          PINED_PROJECTS_CACHE_RESET_TIME_STAMP
+          PINED_PROJECTS_CACHE_RESET_TIME_STAMP,
         );
       } catch (error) {
         console.error("Fetching Content Error:", error);
@@ -199,7 +201,7 @@ function About() {
     <div className="container">
       <Header />
 
-      <section className="about">
+      <section className="about" ref={about_ref}>
         <div className="about-img">
           <img src={about_img} alt="about" />
         </div>
@@ -209,14 +211,15 @@ function About() {
           <div className="hash-tag">
             Software Engineer | Full Stack Developer | Cloud Architect
           </div>
-          <div className="title">Hi👋&ensp;我是王仁哲，是一位全端開發者</div>
+          <div className="title">Hi👋&ensp;我是王仁哲，是一位軟體工程師</div>
           <div className="content">
             <span>
-              以架設雲端系統、設計調校資料庫、開發網站維生的小小工程師
+              專業為規劃分析雲端架構、設計調校資料庫、開發前後端網頁系統，經驗豐富且熟悉各項雲端技術
             </span>
             <span>有任何相關想實現的藍圖都歡迎聯繫～</span>
           </div>
         </div>
+        <WaterDrop targetRef={about_ref} />
       </section>
 
       <section className="function-block">

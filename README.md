@@ -1,12 +1,14 @@
 # 📔 Aaron Wang's Personal Portfolio
 
-## Used Skills 
-* __HTML__
-* __CSS__
-* __JavaScript__
-* __React__
-* __OpenStreet Map__
-* __JSON Data Format__
+## Used Skills
+
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **React**
+- **Three.js**
+- **OpenStreet Map**
+- **JSON Data Format**
 
 ---
 

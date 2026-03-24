@@ -1,5 +1,4 @@
-import { useState, useMemo } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { useEffect, useRef, useMemo } from "react";
 import L from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -7,39 +6,60 @@ import "../styles/Map.css";
 
 import brain from "../images/brain.svg";
 
+/**
+ * 使用命令式 Leaflet（L.map + cleanup 裡 map.remove()），
+ * 避免 react-leaflet 的 MapContainer 在 Strict Mode 下對同一 DOM 重複初始化。
+ */
 function Map({ latitude, longitude }) {
-  const [position] = useState([latitude, longitude]);
+  const containerRef = useRef(null);
 
-  const custom_icon = useMemo(
+  const customIcon = useMemo(
     () =>
       L.icon({
         iconUrl: brain,
-        iconSize: [80, 80], // 圖標的大小
-        iconAnchor: [45, 50], // 圖標的錨點，對應於圖標放置時地圖上的位置
-        popupAnchor: [-3, -80], // 彈出窗口的錨點
+        iconSize: [80, 80],
+        iconAnchor: [45, 50],
+        popupAnchor: [-3, -80],
       }),
-    []
+    [],
   );
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return undefined;
+
+    const map = L.map(el, {
+      zoomControl: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      dragging: false,
+    }).setView([latitude, longitude], 12);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    L.marker([latitude, longitude], { icon: customIcon }).addTo(map);
+
+    // 父層若為動態高度，可確保圖磚尺寸正確
+    requestAnimationFrame(() => {
+      map.invalidateSize();
+    });
+
+    return () => {
+      map.remove();
+    };
+  }, [latitude, longitude, customIcon]);
 
   return (
     <div className="map-frame">
-      <MapContainer
-        center={position}
-        zoom={12}
+      <div
+        ref={containerRef}
         style={{ height: "100%", width: "100%" }}
-        zoomControl={false}
-        scrollWheelZoom={false}
-        doubleClickZoom={false}
-        dragging={false}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={position} icon={custom_icon}>
-          {/* <Popup>在此為您服務～</Popup> */}
-        </Marker>
-      </MapContainer>
+        role="presentation"
+        aria-hidden
+      />
     </div>
   );
 }
